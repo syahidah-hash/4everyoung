@@ -17,29 +17,28 @@
         </thead>
 
         <tbody>
-            @foreach ($users as $user)
-                @forelse ($user->savings as $saving)
-                <tr>
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->membership_number }}</td>
-                    <td>{{ $user->address }}</td>
-                    <td>{{ $user->phone }}</td>
-                    <td>{{ ucfirst($saving->saving_type) }}</td>
-                    <td>Rp {{ number_format($saving->amount, 2, ',', '.') }}</td>
-                </tr>
-            @empty
-                <tr>
+           @foreach ($users as $user)
+    @forelse ($user->savings as $saving)
+        <tr>
             <td>{{ $user->id }}</td>
-                <td>{{ $user->name }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->membership_number }}</td>
-                <td>{{ $user->address }}</td>
-                <td>{{ $user->phone }}</td>
-                <td colspan="2">Belum ada simpanan</td>
-            @endforeach
-        </tbody>
-    </table>
-</div>
-@endsection
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ $user->membership_number }}</td>
+            <td>{{ $user->address }}</td>
+            <td>{{ $user->phone }}</td>
+            <td>{{ ucfirst($saving->saving_type) }}</td>
+            <td>Rp {{ number_format($saving->amount, 2, ',', '.') }}</td>
+        </tr>
+    @empty
+        <tr>
+            <td>{{ $user->id }}</td>
+            <td>{{ $user->name }}</td>
+            <td>{{ $user->email }}</td>
+            <td>{{ $user->membership_number }}</td>
+            <td>{{ $user->address }}</td>
+            <td>{{ $user->phone }}</td>
+            <td colspan="2">Belum ada simpanan</td>
+        </tr>
+    @endforelse
+@endforeach
+

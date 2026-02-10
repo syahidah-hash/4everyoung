@@ -7,3 +7,4 @@ Route::get('/', [UserController::class, 'index']);
 
 Route::get('/users', [UserController::class, 'index']);
 
+Route::get('/savings', [SavingController::class, 'index']);
